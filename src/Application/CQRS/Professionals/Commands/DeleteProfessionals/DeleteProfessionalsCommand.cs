@@ -2,7 +2,7 @@
 
 namespace HealthBookingAPI.Application.CQRS.Professionals.Commands.DeleteProfessionals;
 
-public class DeleteProfessionalsCommand: IRequest<Guid>
+public class DeleteProfessionalsCommand : IRequest<Guid>
 {
     public Guid Id { get; }
 }
