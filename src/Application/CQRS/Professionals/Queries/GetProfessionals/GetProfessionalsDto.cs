@@ -1,6 +1,4 @@
 ﻿
-using HealthBookingAPI.Domain.Entities;
-
 namespace HealthBookingAPI.Application.CQRS.Professionals.Queries.GetProfessionals;
 
 public class GetProfessionalsDto
@@ -10,8 +8,6 @@ public class GetProfessionalsDto
     public Guid UserId { get; set; }
 
     public Guid CategoryId { get; set; }
-
-    public Categories Categories { get; set; } = null!;
 
     public bool IsActive { get; set; }
 

@@ -22,8 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="CQRS\Categories\" />
-    <Folder Include="CQRS\Appointments\" />
     <Folder Include="CQRS\Users\" />
   </ItemGroup>
 
