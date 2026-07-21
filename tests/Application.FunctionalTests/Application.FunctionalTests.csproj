@@ -6,6 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="MessagePack" />
       <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" />
       <PackageReference Include="System.IdentityModel.Tokens.Jwt" />
       <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" />
@@ -35,7 +36,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\src\Shared\Shared.csproj" />
-        <ProjectReference Include="..\..\src\Web\Web.csproj" />
+        <ProjectReference Include="..\..\src\Web\HBAPI.csproj" />
         <ProjectReference Include="..\TestAppHost\TestAppHost.csproj" />
     </ItemGroup>
 
