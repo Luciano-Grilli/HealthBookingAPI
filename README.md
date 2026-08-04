@@ -1,57 +1,133 @@
-﻿# HealthBookingAPI
+# HealthBooking API
 
-The project was generated using the [Clean.Architecture.Solution.Template](https://github.com/jasontaylordev/CleanArchitecture) version 10.8.0.
+API de gestión de citas médicas con .NET 10 usando Onion Architecture.
 
-## Build
+---
 
-Run `dotnet build` to build the solution.
+## 🏗️ Arquitectura: Onion Architecture
 
-## Run
+Arquitectura basada en capas concéntricas:
 
-To run the application:
+```
+┌─────────────────────────────┐
+│   Presentation (Web)        │  APIs, Controllers
+├─────────────────────────────┤
+│  Application (Application)  │  CQRS, Casos de uso
+├─────────────────────────────┤
+│     Domain (Domain)         │  Entidades, Lógica
+├─────────────────────────────┤
+│ Infrastructure (Infra)      │  BD, Repositorios
+└─────────────────────────────┘
+```
+
+**Características:**
+- Independencia de frameworks
+- Lógica core aislada
+- Fácil testabilidad
+- Inversión de dependencias
+
+### Proyectos
+- **Domain** - Entidades, Eventos, Excepciones
+- **Application** - CQRS, Validaciones, Comportamientos
+- **Infrastructure** - EF Core, SQLite, Identity, Repositorios
+- **Web** - Controllers REST, OpenAPI
+- **Shared** - Utilidades
+- **tests/** - Unit, Integration, Functional
+
+---
+
+## 🛠️ Stack Tecnológico
+
+### Framework
+| Componente | Versión |
+|-----------|---------|
+| .NET | 10.0 |
+| ASP.NET Core | 10.0 |
+
+### Base de Datos
+| Componente | Versión |
+|-----------|---------|
+| SQLite | Latest |
+| Entity Framework Core | 10.0.5 |
+
+### Herramientas de Aplicación
+| Herramienta | Versión |
+|-----------|---------|
+| MediatR (CQRS) | 14.1.0 |
+| AutoMapper | 16.1.1 |
+| FluentValidation | 12.1.1 |
+| Ardalis.GuardClauses | 5.0.0 |
+
+### Autenticación
+| Componente | Versión |
+|-----------|---------|
+| ASP.NET Core Identity | 10.0 |
+| JWT Tokens | 8.16.0 |
+
+### API Documentation
+| Componente | Versión |
+|-----------|---------|
+| OpenAPI | 10.0.5 |
+| Scalar UI | 2.13.13 |
+
+### Testing
+| Framework | Versión |
+|-----------|---------|
+| NUnit | 4.5.1 |
+| Moq | 4.20.72 |
+
+---
+
+## ✨ Características
+
+**Funcionales:**
+✅ CRUD Citas, Profesionales, Categorías
+✅ Autenticación JWT
+✅ Autorización por roles
+✅ Auditoría automática
+✅ Domain Events
+
+**Técnicas:**
+✅ Onion Architecture
+✅ CQRS Pattern
+✅ Mediator Pattern
+✅ Repository Pattern
+✅ OpenAPI Docs
+✅ Exception Handling
+✅ Validación automática
+✅ Object Mapping
+✅ Tests (Unit/Integration/E2E)
+
+---
+
+## 🚀 Quick Start
 
 ```bash
-dotnet run --project .\src\AppHost
+# Clonar
+git clone https://github.com/Luciano-Grilli/HealthBookingAPI.git
+cd HealthBookingAPI
+
+# Restaurar
+dotnet restore
+
+# Migraciones
+dotnet ef database update -p src/Infrastructure -s src/Web
+
+# Ejecutar
+dotnet run --project src/Web
 ```
 
-The Aspire dashboard will open automatically, showing the application URLs and logs.
+**API Docs**: http://localhost:5000/scalar
 
-## Code Styles & Formatting
-
-The template includes [EditorConfig](https://editorconfig.org/) support to help maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs. The **.editorconfig** file defines the coding styles applicable to this solution.
-
-## Code Scaffolding
-
-The template includes support to scaffold new commands and queries.
-
-Start in the `.\src\Application\` folder.
-
-Create a new command:
-
-```
-dotnet new ca-usecase --name CreateTodoList --feature-name TodoLists --usecase-type command --return-type int
-```
-
-Create a new query:
-
-```
-dotnet new ca-usecase -n GetTodos -fn TodoLists -ut query -rt TodosVm
-```
-
-If you encounter the error *"No templates or subcommands found matching: 'ca-usecase'."*, install the template and try again:
-
-```bash
-dotnet new install Clean.Architecture.Solution.Template::10.8.0
-```
-
-## Test
-
-The solution contains unit, integration, and functional tests.
-
-To run the tests:
+### Tests
 ```bash
 dotnet test
 ```
 
-## Help
-To learn more about the template go to the [project website](https://cleanarchitecture.jasontaylor.dev). Here you can find additional guidance, request new features, report a bug, and discuss the template with other users.
+---
+
+## 👤 Autor
+
+Luciano Grilli - [@GitHub](https://github.com/Luciano-Grilli)
+
+**Versión**: .NET 10.0 | **Status**: ✅ Activo
